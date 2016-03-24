@@ -29,4 +29,20 @@ class UsersController < ApplicationController
 			render json: { message: "User does not exist" }, status: 200
 		end
 	end
+
+	def create
+		new_user = User.create(user_params)
+
+			if new_user.password == nil
+			  render json: { message: "You need to create a valid password" }, status: 200
+		  else
+			  render json: { message: "You're good to go!" }, status: 200
+		  end
+	end
+
+	private
+
+	def user_params
+		params.require(:user).permit(:username, :password)
+	end
 end
