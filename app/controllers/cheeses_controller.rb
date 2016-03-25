@@ -2,7 +2,7 @@ class CheesesController < ApplicationController
 	protect_from_forgery
 
 	expose(:id)			{ params[:id] }
-	expose(:name)		{ params[:name] }
+	# expose(:name)		{ params[:name] }
 
 	def list_cheeses
 		cheese = Cheese.all
@@ -16,14 +16,16 @@ class CheesesController < ApplicationController
 	end
 
 	def get_by_user
-		cheese = []
-		Cheese.
-		# Cheese.find(id: id)
+		# cheese = []
+		# cheeses_in_array = Cheese.find_by(id: id)
+		cheese_list = User.find(id).cheeses.pluck(:name) 
+		
 
-		if user.cheese
-			render json: { cheeses: name }, status: 200
-		else
+		if cheese_list.empty?
+			# (cheeses_in_array)
 			render json: { message: "This user apparently does not like cheese" }, status: 200
+		else
+			render json: { cheese: cheese_list }, status: 200	
 		end
 	end
 

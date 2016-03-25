@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
-  get '/user/:id'        => 'users#get'
-  post '/login'          => 'users#login'
-  post '/sign_up'        => 'users#create'
+  
+  get '/user/:id'           => 'users#get'
+  post '/login'             => 'users#login'
+  post '/sign_up'           => 'users#create'
 
-  get '/cheeses'         => 'cheeses#list_cheeses'
-  get '/cheese/user_id'  => 'cheeses#get_by_user'
+  get '/cheeses'            => 'cheeses#list_cheeses'
+  get '/user/cheeses/:id'   => 'cheeses#get_by_user'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
