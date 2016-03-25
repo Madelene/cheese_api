@@ -29,6 +29,16 @@ class CheesesController < ApplicationController
 		end
 	end
 
+	def create
+		new_cheese = Cheese.create(cheese_params)
+
+		if new_cheese.name == nil
+			render json: { message: "Please add your favorite cheese" }, status: 200
+		else
+			render json: { message: "Your cheese has been added" }, status: 200
+		end
+	end
+
 	private
 
 	def cheese_params

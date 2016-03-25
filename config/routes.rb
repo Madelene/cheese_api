@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/cheeses'            => 'cheeses#list_cheeses'
   get '/user/cheeses/:id'   => 'cheeses#get_by_user'
 
+  post '/add_some_cheese'   => 'cheeses#create'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
