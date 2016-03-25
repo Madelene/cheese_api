@@ -1,6 +1,10 @@
 class Cheese < ActiveRecord::Base
-	belongs_to :user
+	has_many :usercheeses
+	has_many :users, :through => :usercheeses
 
-	cheese = Cheese.new
+
+	Cheese.all.each do | cheese |
+		puts "This is my favorite cheese: " + cheese.name
+	end
 	
 end
