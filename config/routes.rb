@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   post '/add_some_cheese'   => 'cheeses#create'
 
+  post '/have_some_cheese'  => 'usercheeses#add_cheese_to_user' 
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
